@@ -6,7 +6,7 @@
   "author": "Sasha Sohrabi <https://sasha-sohrabi.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/SashaSohrabi/vue-app"
+    "url": "https://github.com/SashaSohrabi/vuejs-app"
   },
   "license": "UNLICENSED",
   "scripts": {
