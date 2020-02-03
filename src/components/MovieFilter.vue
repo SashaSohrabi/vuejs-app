@@ -19,8 +19,8 @@ export default {
     CheckFilter
   },
   methods: {
-    checkFilter() {
-      console.log("checkFilter");
+    checkFilter(category, title, checked) {
+      this.$emit("check-filter", category, title, checked);
     }
   },
   data() {

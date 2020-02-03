@@ -7,7 +7,7 @@
     <div id="overview">
       <div class="main">
         <movie-list />
-        <movie-filter />
+        <movie-filter @check-filter="checkFilter" />
       </div>
     </div>
   </div>
@@ -21,6 +21,24 @@ export default {
   components: {
     MovieList,
     MovieFilter
+  },
+  data() {
+    return {
+      genre: [],
+      time: []
+    };
+  },
+  methods: {
+    checkFilter(category, title, checked) {
+      if (checked) {
+        this[category].push(title);
+      } else {
+        let index = this[category].indexOf(title);
+        if (index > -1) {
+          this[category].splice(index, 1);
+        }
+      }
+    }
   }
 };
 </script>
