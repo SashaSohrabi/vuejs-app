@@ -6,7 +6,7 @@
     </div>
     <div id="overview">
       <div class="main">
-        <movie-list />
+        <movie-list :genre="genre" :time="time" />
         <movie-filter @check-filter="checkFilter" />
       </div>
     </div>
