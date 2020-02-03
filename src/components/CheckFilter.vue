@@ -1,5 +1,5 @@
 <template>
-  <div :class="{'check-filter': true, active: checked}" @click="checked = !checked">
+  <div :class="{'check-filter': true, active: checked}" @click="checkFilter">
     <span class="checkbox"></span>
     <span class="check-filter-title">{{ title }}</span>
   </div>
@@ -12,6 +12,12 @@ export default {
     return {
       checked: false
     };
+  },
+  methods: {
+    checkFilter() {
+      this.checked = !this.checked;
+      this.$emit("check-filter");
+    }
   }
 };
 </script>
