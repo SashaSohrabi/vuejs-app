@@ -1,6 +1,6 @@
 <template>
   <div id="movie-list">
-    <movie-item v-for="movie in filteredMovies" :key="movie" class="movie" :movie="movie"/>
+    <movie-item v-for="movie in filteredMovies" :key="movie" :movie="movie.movie"/>
   </div>
 </template>
 
