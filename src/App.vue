@@ -16,6 +16,7 @@
 <script>
 import MovieList from "./components/MovieList.vue";
 import MovieFilter from "./components/MovieFilter.vue";
+
 export default {
   name: "app",
   components: {
@@ -25,8 +26,14 @@ export default {
   data() {
     return {
       genre: [],
-      time: []
+      time: [],
+      movies: []
     };
+  },
+  created() {
+    this.$http.get("/api").then(res => {
+      this.movies = res.data;
+    });
   },
   methods: {
     checkFilter(category, title, checked) {
