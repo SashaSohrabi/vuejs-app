@@ -20,7 +20,11 @@ export default {
   computed: {
     filteredMovies() {
       return this.movies.filter(movie => {
-        return this.genre.find(genre => movie.genre === genre);
+        if (!this.genre.length) {
+          return true;
+        } else {
+          return this.genre.find(genre => movie.genre === genre);
+        }
       });
     }
   }
