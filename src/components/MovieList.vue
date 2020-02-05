@@ -1,6 +1,14 @@
 <template>
   <div id="movie-list">
-    <movie-item v-for="movie in filteredMovies" :key="movie" :movie="movie.movie"/>
+    <div v-if="filteredMovies.length">
+      <movie-item v-for="movie in filteredMovies" :key="movie" :movie="movie.movie" />
+    </div>
+    <div v-else-if="movies.length" class="no-results">
+      No results.
+    </div>
+    <div v-else class="no-results">
+      Loading...
+    </div>
   </div>
 </template>
 
@@ -22,10 +30,10 @@ export default {
           let movieGenres = movie.movie.Genre.split(", ");
           let matched = true;
           this.genre.forEach(genre => {
-            if(movieGenres.indexOf(genre) === -1) {
+            if (movieGenres.indexOf(genre) === -1) {
               matched = false;
             }
-          })
+          });
           return matched;
         }
       });
