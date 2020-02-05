@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="movie">
     <div class="movie-col-left">
       <img :src="movie.Poster" />
     </div>
