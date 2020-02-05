@@ -6,7 +6,7 @@
     </div>
     <div id="overview">
       <div class="main">
-        <movie-list :genre="genre" :time="time" :movies="movies" />
+        <movie-list :genre="genre" :time="time" :movies="movies" :day="day._d"/>
         <movie-filter @check-filter="checkFilter" />
       </div>
     </div>
@@ -28,7 +28,8 @@ export default {
       genre: [],
       time: [],
       movies: [],
-      moment: []
+      moment: [],
+      day: (this.$moment)()
     };
   },
   created() {
