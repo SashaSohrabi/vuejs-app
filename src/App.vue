@@ -27,7 +27,8 @@ export default {
     return {
       genre: [],
       time: [],
-      movies: []
+      movies: [],
+      moment: []
     };
   },
   created() {
