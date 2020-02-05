@@ -33,7 +33,6 @@ export default {
   created() {
     this.$http.get("/api").then(res => {
       this.movies = res.data;
-      console.log(res.data);
     });
   },
   methods: {
