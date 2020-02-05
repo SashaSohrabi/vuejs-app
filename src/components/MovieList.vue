@@ -1,7 +1,7 @@
 <template>
   <div id="movie-list">
     <div v-if="filteredMovies.length">
-      <movie-item v-for="movie in filteredMovies" :key="movie" :movie="movie.movie" />
+      <movie-item v-for="movie in filteredMovies" :key="movie" :movie="movie.movie" :sessions="movie.sessions" />
     </div>
     <div v-else-if="movies.length" class="no-results">No results.</div>
     <div v-else class="no-results">Loading...</div>
