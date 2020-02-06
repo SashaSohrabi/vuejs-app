@@ -8,7 +8,6 @@
         category="time"
         :key="time"
         :title="time"
-        @check-filter="checkFilter"
       />
     </div>
     <h3>By genre</h3>
@@ -18,7 +17,6 @@
         category="genre"
         :key="genre"
         :title="genre"
-        @check-filter="checkFilter"
       />
     </div>
   </div>
@@ -31,11 +29,6 @@ import CheckFilter from "./CheckFilter.vue";
 export default {
   components: {
     CheckFilter
-  },
-  methods: {
-    checkFilter(category, title, checked) {
-      this.$emit("check-filter", category, title, checked);
-    }
   },
   data() {
     return {

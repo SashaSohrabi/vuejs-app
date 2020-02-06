@@ -9,6 +9,9 @@ Object.defineProperty(Vue.prototype, "$moment", { value: moment });
 
 Vue.use(VueResource);
 
+const bus = new Vue();
+Object.defineProperty(Vue.prototype, "$bus", { value: bus });
+
 Vue.config.productionTip = false;
 
 new Vue({

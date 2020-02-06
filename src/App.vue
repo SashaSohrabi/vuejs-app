@@ -6,8 +6,8 @@
     </div>
     <div id="overview">
       <div class="main">
-        <movie-list :genre="genre" :time="time" :movies="movies" :day="day._d"/>
-        <movie-filter @check-filter="checkFilter" />
+        <movie-list :genre="genre" :time="time" :movies="movies" :day="day._d" />
+        <movie-filter />
       </div>
     </div>
   </div>
@@ -16,6 +16,7 @@
 <script>
 import MovieList from "./components/MovieList.vue";
 import MovieFilter from "./components/MovieFilter.vue";
+import { checkFilter } from "./util/bus"
 
 export default {
   name: "app",
@@ -29,25 +30,14 @@ export default {
       time: [],
       movies: [],
       moment: [],
-      day: (this.$moment)()
+      day: this.$moment()
     };
   },
   created() {
     this.$http.get("/api").then(res => {
       this.movies = res.data;
     });
-  },
-  methods: {
-    checkFilter(category, title, checked) {
-      if (checked) {
-        this[category].push(title);
-      } else {
-        let index = this[category].indexOf(title);
-        if (index > -1) {
-          this[category].splice(index, 1);
-        }
-      }
-    }
+    this.$bus.$on("check-filter", checkFilter.bind(this));
   }
 };
 </script>
