@@ -16,6 +16,7 @@
 
 <script>
 import genres from "../util/genres";
+import times from "../util/times";
 import MovieItem from "./MovieItem.vue";
 
 export default {
@@ -25,23 +26,37 @@ export default {
   },
   methods: {
     moviePassesGenreFilter(movie) {
+      console.log(movie);
       if (!this.genre.length) {
-          return true;
-        } else {
-          let movieGenres = movie.movie.Genre.split(", ");
-          let matched = true;
-          this.genre.forEach(genre => {
-            if (movieGenres.indexOf(genre) === -1) {
-              matched = false;
-            }
-          });
-          return matched;
-        }
+        return true;
+      } else {
+        let movieGenres = movie.movie.Genre.split(", ");
+        let matched = true;
+        this.genre.forEach(genre => {
+          if (movieGenres.indexOf(genre) === -1) {
+            matched = false;
+          }
+        });
+        return matched;
+      }
+    },
+    sessionPassesTimeFilter(session) {
+      if (!this.$moment(session.time).isSame(this.day, "day")) {
+        return false;
+      } else if (this.time.length === 0 || this.time.length === 2) {
+        return true;
+      } else if (this.time[0] === times.AFTER_6PM) {
+        return this.$moment(session.time).hour() >= 18;
+      } else {
+        return this.$moment(session.time).hour() < 18;
+      }
     }
   },
   computed: {
     filteredMovies() {
-      return this.movies.filter(this.moviePassesGenreFilter);
+      return this.movies
+        .filter(this.moviePassesGenreFilter)
+        .filter(movie => movie.sessions.find(this.sessionPassesTimeFilter));
     }
   }
 };
