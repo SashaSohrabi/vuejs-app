@@ -23,10 +23,9 @@ export default {
   components: {
     MovieItem
   },
-  computed: {
-    filteredMovies() {
-      return this.movies.filter(movie => {
-        if (!this.genre.length) {
+  methods: {
+    moviePassesGenreFilter(movie) {
+      if (!this.genre.length) {
           return true;
         } else {
           let movieGenres = movie.movie.Genre.split(", ");
@@ -38,7 +37,11 @@ export default {
           });
           return matched;
         }
-      });
+    }
+  },
+  computed: {
+    filteredMovies() {
+      return this.movies.filter(this.moviePassesGenreFilter);
     }
   }
 };

@@ -2,8 +2,8 @@ import Vue from "vue";
 import App from "./App.vue";
 import "./style.scss";
 import VueResource from "vue-resource";
-import moment from "moment-timezone";
 
+import moment from "moment-timezone";
 moment.tz.setDefault("UTC");
 Object.defineProperty(Vue.prototype, "$moment", { value: moment });
 
