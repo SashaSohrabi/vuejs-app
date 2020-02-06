@@ -4,25 +4,18 @@
       <img alt="App logo" src="/public/logo.png" />
       <h1>Vue.js Cinema</h1>
     </div>
-    <div id="overview">
-      <div class="main">
-        <movie-list :genre="genre" :time="time" :movies="movies" :day="day._d" />
-        <movie-filter />
-      </div>
-    </div>
+    <overview :genre="genre" :time="time" :movies="movies" :day="day._d"/>
   </div>
 </template>
 
 <script>
-import MovieList from "./components/MovieList.vue";
-import MovieFilter from "./components/MovieFilter.vue";
-import { checkFilter } from "./util/bus"
+import Overview from "./components/Overview.vue";
+import { checkFilter } from "./util/bus";
 
 export default {
   name: "app",
   components: {
-    MovieList,
-    MovieFilter
+    Overview
   },
   data() {
     return {
