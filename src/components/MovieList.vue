@@ -7,6 +7,7 @@
         :movie="movie.movie"
         :sessions="movie.sessions"
         :day="day"
+        :time="time"
       />
     </div>
     <div v-else-if="movies.length" class="no-results">No results.</div>
@@ -26,7 +27,6 @@ export default {
   },
   methods: {
     moviePassesGenreFilter(movie) {
-      console.log(movie);
       if (!this.genre.length) {
         return true;
       } else {
