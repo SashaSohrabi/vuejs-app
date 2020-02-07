@@ -4,7 +4,7 @@
       <router-link to="/">
         <img alt="App logo" src="/public/logo.png" />
       </router-link>
-      <h1>Vue.js Cinema</h1>
+      <h1>Cinema</h1>
     </div>
     <router-view :genre="genre" :time="time" :movies="movies" :day="day._d" />
   </div>

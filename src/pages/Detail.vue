@@ -42,9 +42,6 @@ export default {
 
       return movie ? movie.movie : null;
     }
-  },
-  created() {
-    console.log(this.$route.params.id);
   }
 };
 </script>  
