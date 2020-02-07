@@ -5,11 +5,18 @@
     </div>
     <div class="movie-col-right">
       <div class="movie-title">
-        <h2>{{movie.Title}}</h2>
+        <router-link :to="path">
+          <h2>{{movie.Title}}</h2>
+        </router-link>
+
         <span class="movie-rating">{{movie.Rated}}</span>
       </div>
       <div class="movie-sessions">
-        <div v-for="session in filteredSessions(sessions)" :key="session" class="session-time-wrapper">
+        <div
+          v-for="session in filteredSessions(sessions)"
+          :key="session"
+          class="session-time-wrapper"
+        >
           <div class="session-time">{{formatSessionTime(session.time)}}</div>
         </div>
       </div>
@@ -39,6 +46,11 @@ export default {
         return this.$moment(session.time).hour() < 18;
       }
     }
+  },
+  data() {
+    return {
+      path: `/movie`
+    };
   }
 };
 </script>

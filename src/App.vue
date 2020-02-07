@@ -4,7 +4,7 @@
       <img alt="App logo" src="/public/logo.png" />
       <h1>Vue.js Cinema</h1>
     </div>
-    <overview :genre="genre" :time="time" :movies="movies" :day="day._d"/>
+    <router-view :genre="genre" :time="time" :movies="movies" :day="day._d" />
   </div>
 </template>
 
