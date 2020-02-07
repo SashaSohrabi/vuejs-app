@@ -1,5 +1,5 @@
 import Overview from "../components/Overview.vue";
-import Detail from "../components/Detail.vue";
+import Detail from "../pages/Detail.vue";
 
 export default [
   { path: "/", component: Overview, name: "home" },
