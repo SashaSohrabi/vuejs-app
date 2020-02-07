@@ -1,7 +1,9 @@
 <template>
   <div class="movie">
     <div class="movie-col-left">
-      <img :src="movie.Poster" />
+      <router-link :to="path">
+        <img :src="movie.Poster" />
+      </router-link>
     </div>
     <div class="movie-col-right">
       <div class="movie-title">
@@ -49,7 +51,7 @@ export default {
   },
   data() {
     return {
-      path: `/movie`
+      path: `/movie/${this.movie.imdbID}`
     };
   }
 };
