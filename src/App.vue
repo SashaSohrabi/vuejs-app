@@ -12,7 +12,7 @@
 
 <script>
 import Overview from "./components/Overview.vue";
-import { checkFilter } from "./util/bus";
+import { checkFilter, setDay } from "./util/bus";
 
 export default {
   name: "app",
@@ -33,6 +33,7 @@ export default {
       this.movies = res.data;
     });
     this.$bus.$on("check-filter", checkFilter.bind(this));
+    this.$bus.$on("set-day", setDay.bind(this));
   }
 };
 </script>

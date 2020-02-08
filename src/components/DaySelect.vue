@@ -5,13 +5,14 @@
         :class="{day: true, active: isActive(day)}"
         v-for="day in days"
         :key="day"
-        @click="selected = day"
+        @click="selectDay(day)"
       >{{formatDay(day)}}</li>
     </ul>
   </div>
 </template>
 <script>
 export default {
+  props: ["selected"],
   data() {
     return {
       selected: this.$moment(),
@@ -28,6 +29,9 @@ export default {
     },
     isActive(day) {
       return day.isSame(this.selected, "day");
+    },
+    selectDay(day) {
+      this.$bus.$emit("set-day", day);
     }
   }
 };
