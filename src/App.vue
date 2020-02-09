@@ -6,7 +6,9 @@
       </router-link>
       <h1>Cinema</h1>
     </div>
-    <router-view :genre="genre" :time="time" :movies="movies" :day="day._d" />
+    <keep-alive>
+      <router-view :genre="genre" :time="time" :movies="movies" :day="day._d" />
+    </keep-alive>
   </div>
 </template>
 
