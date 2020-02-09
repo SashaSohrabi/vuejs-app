@@ -1,7 +1,7 @@
 <template>
   <div id="movie-list">
     <div v-if="filteredMovies.length">
-      <movie-item v-for="movie in filteredMovies" :key="movie" :movie="movie.movie">
+      <movie-item v-for="movie in filteredMovies" :key="movie.id" :movie="movie.movie">
         <div class="movie-sessions">
           <div
             v-for="session in filteredSessions(movie.sessions)"
