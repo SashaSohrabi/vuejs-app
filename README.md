@@ -2,7 +2,7 @@
 
 #### Demo
 
-[See the project here] (https://vue-cinema.netlify.com/)
+# [See the project here](https://vue-cinema.netlify.com/)
 
 #### Pre-installation
 
